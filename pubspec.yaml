@@ -1,0 +1,19 @@
+name: one_fcm_notification_server
+description: ProKliniK-One FCM Notifications Server
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  dart_frog: ^1.1.0
+  equatable: ^2.0.8
+  googleapis_auth: ^2.0.0
+  http: ^1.6.0
+  shelf_cors_headers: ^0.1.5
+
+dev_dependencies:
+  dart_frog_lint: ^0.1.0
+  mocktail: ^1.0.3
+  test: ^1.25.5
