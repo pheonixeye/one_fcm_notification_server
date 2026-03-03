@@ -6,7 +6,7 @@ Middleware corsHeaders() => fromShelfMiddleware(
       shelf.corsHeaders(
         headers: {
           shelf.ACCESS_CONTROL_ALLOW_ORIGIN: '*',
-          shelf.ACCESS_CONTROL_ALLOW_METHODS: 'OPTIONS, POST',
+          shelf.ACCESS_CONTROL_ALLOW_METHODS: '*',
         },
       ),
     );

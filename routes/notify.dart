@@ -14,6 +14,13 @@ Future<Response> onRequest(RequestContext context) async {
   // if (context.request.method == HttpMethod.options) {
   //   return _handleOptions(context);
   // }
+  print('''
+[TIME] : ${DateTime.now()}
+[METHOD] : ${context.request.method}
+[HEADERS] : ${context.request.headers}
+[BODY] : ${await context.request.body()}
+----------------------------------------
+''');
   if (context.request.method == HttpMethod.post) {
     return _handlePostRequest(context);
   } else {
