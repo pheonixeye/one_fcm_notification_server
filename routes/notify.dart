@@ -11,6 +11,9 @@ import '../models/tokenized_notification.dart';
 import '../services/fcm_server_handler.dart';
 
 Future<Response> onRequest(RequestContext context) async {
+  // if (context.request.method == HttpMethod.options) {
+  //   return _handleOptions(context);
+  // }
   if (context.request.method == HttpMethod.post) {
     return _handlePostRequest(context);
   } else {
@@ -20,6 +23,13 @@ Future<Response> onRequest(RequestContext context) async {
     );
   }
 }
+
+// Future<Response> _handleOptions(RequestContext context) async {
+//   return Response(
+//     // ignore: avoid_redundant_argument_values
+//     statusCode: HttpStatus.ok,
+//   );
+// }
 
 Future<Response> _handlePostRequest(RequestContext context) async {
   try {

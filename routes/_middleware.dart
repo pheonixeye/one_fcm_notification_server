@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
-import 'package:shelf_cors_headers/shelf_cors_headers.dart' as shelf;
+
+import '../services/cors_headers.dart';
+import '../services/logger.dart';
 
 const spamRequests = [
   'favicon.ico',
@@ -12,17 +14,9 @@ const spamRequests = [
 
 Handler middleware(Handler handler, [String? frag]) {
   return handler
-    ..use(badRequestHandler)
-    ..use(requestLogger())
-    ..use(
-      fromShelfMiddleware(
-        shelf.corsHeaders(
-          headers: {
-            shelf.ACCESS_CONTROL_ALLOW_ORIGIN: '*',
-          },
-        ),
-      ),
-    );
+    ..use(corsHeaders())
+    ..use(logger)
+    ..use(badRequestHandler);
 }
 
 Handler badRequestHandler(Handler handler) {
